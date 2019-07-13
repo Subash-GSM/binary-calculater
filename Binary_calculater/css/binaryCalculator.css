@@ -1,0 +1,31 @@
+body{
+    width:33%;
+    }
+#res{
+    background-color: lightgray;
+    height: 48px;
+    border: solid black;
+    font-size: 20px;
+}
+#btn0, #btn1{
+    background-color:lightgreen;
+    color:brown;
+    
+}
+#btnClr, #btnEql{
+    background-color:darkgreen;
+    color:white;
+}
+
+#btnSum, #btnSub, #btnMul, #btnDiv{
+    background-color:black;
+    color:red;
+}
+
+#btn0, #btn1, #btnClr, #btnEql, #btnSum, #btnMul, #btnSub, #btnDiv{
+    flex:left;
+    height:36px;
+    width:25%;
+    margin:0px;
+    font-size:18px;
+}

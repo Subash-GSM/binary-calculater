@@ -1,0 +1,119 @@
+<!-- Enter your HTML code here -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Binary Calculator</title>
+        <link rel="stylesheet" href="css/binaryCalculator.css" type="text/css">
+    </head>
+    <body>
+        <div id="res" value ="">
+    
+        </div>
+        <div id="btns">
+            <button id="btn0" onclick="displayValue(this)" value = 0 > 0 </button>
+            <button id="btn1" onclick="displayValue(this)" value = 1 > 1 </button>
+            <button id="btnClr" onclick="clearValue()"> C </button>
+            
+            <button id="btnEql" onclick="myFunction()"> = </button>
+            
+            <button id="btnSum" value = "+" onclick="displayValue(this)" > + </button>
+            <button id="btnSub" value = "-" onclick="displayValue(this)"> - </button>
+            <button id="btnMul" value = "*" onclick="displayValue(this)"> * </button>
+            <button id="btnDiv" value = "/" onclick="displayValue(this)"> / </button>
+            
+        </div>
+        
+        <script>
+
+    function displayValue(z) {
+    var x = z.value;
+    var s1 = document.getElementById("res").value;
+
+    if (typeof s1 != "undefined")
+        {
+            s1 = s1 + x;
+        }
+    else
+        {
+            s1 = x;
+        }
+    document.getElementById("res").innerHTML = s1;
+    document.getElementById("res").value = s1;  
+        
+    }
+       
+    function clearValue(){
+        var s1 ="";
+        document.getElementById("res").value = s1; 
+        document.getElementById("res").innerHTML = s1;
+        
+    }
+            
+
+            
+</script>
+<script>
+function myFunction() {
+  var str =document.getElementById("res").value;
+  var patt1 = /(\+|\-|\*|[\/])/g;
+  var result = str.match(patt1).length;
+    
+  if (result >1)
+      {
+          alert(" invalid Syntax");      
+    }
+    else{
+        var s2 = str.split(/(\+|\-|\*|[\/])/);
+        
+        
+        if (s2[s2.length-1] == '')
+            {
+                alert(" invalid Syntax");
+                return 0;
+            }
+        
+        else
+            {
+                var a = parseInt(s2[0], 2);
+                var b = parseInt(s2[2], 2);
+                
+                if( s2[1] == '+')
+                    {
+                       var plus = a+b;
+                        plus= dec2bin(plus);
+                       document.getElementById("res").value = plus; 
+                       document.getElementById("res").innerHTML = plus;
+                    }
+                else if(s2[1] == '-')
+                    {
+                        var plus = a-b;
+                        plus= dec2bin(plus);
+                       document.getElementById("res").value = plus; 
+                       document.getElementById("res").innerHTML = plus;}
+                else if(s2[1] == '*')
+                    {
+                        var plus = a*b;
+                        plus= dec2bin(plus);
+                       document.getElementById("res").value = plus; 
+                       document.getElementById("res").innerHTML = plus;}
+                else{
+                     var plus = Number(a/b);
+                        plus= dec2bin(plus);
+                       document.getElementById("res").value = plus; 
+                       document.getElementById("res").innerHTML = plus;
+                }
+              
+            }
+        
+    }
+}
+    
+    function dec2bin(dec){
+    return (dec >>> 0).toString(2);
+}
+
+        </script>
+                
+        </body>
+</html>
